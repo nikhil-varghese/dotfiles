@@ -1,9 +1,9 @@
-" VIMRC
+## VIM CONFIG FILE ##
 
 syntax enable
 set number 
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set showcmd
 set cursorline
 
@@ -14,28 +14,21 @@ set showmatch
 set incsearch
 set hlsearch
 
+colorscheme badwolf
 
-if empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('~/.config/vim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 
-" Plugins
-call plug#begin('~/.vim/plugged')
+# Plugins
+
+call plug#begin('~/.config/vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdtree'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'ryanoasis/vim-devicons'
-Plug 'tpope/vim-fugitive'
-Plug 'https://github.com/joshdick/onedark.vim'
-Plug 'https://github.com/rafi/awesome-vim-colorschemes'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
+" Initialize plugin system
 call plug#end()
 
-colorscheme onedark
